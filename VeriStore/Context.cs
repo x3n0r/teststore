@@ -4,12 +4,16 @@ namespace VeriStore
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using VeriStore.Migrations;
 
-    public partial class Model1 : DbContext
+    public partial class Context : DbContext
     {
-        public Model1()
+        public Context()
             : base("name=VeryStoreConnectionString")
         {
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<Model1, Configuration>());
+            //Database.SetInitializer(new DBInitializer());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<Context, Configuration>());
         }
 
         public virtual DbSet<tbl_animal> tbl_animal { get; set; }

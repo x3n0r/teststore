@@ -11,7 +11,7 @@ namespace AnyStore.DAL
     class userDAL
     {
         //Static String Method for Database Connection String
-        static Model1 db = new Model1();
+        static Context db = new Context();
 
         #region Select Data from Database
         public List<tbl_users> Select()

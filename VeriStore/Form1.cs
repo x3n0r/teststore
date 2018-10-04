@@ -8,10 +8,8 @@ using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using VeriStore;
-using VeriStore.Migrations;
 
 namespace VeriStore
 {
@@ -23,11 +21,10 @@ namespace VeriStore
         }
         userDAL dal = new userDAL();
         //Static String Method for Database Connection String
-        static Model1 db = new Model1();
+        static Context db = new Context();
         private void Form1_Load(object sender, EventArgs e)
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<Model1, Configuration>());
-            
+                        
             bool bit = true;
             if (bit)
             {
